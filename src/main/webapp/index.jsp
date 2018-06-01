@@ -3,6 +3,8 @@
 <html>
 <head>
     <title><%= "some title" %></title>
+    <%@ include file="partials/stylelinks.jsp" %>
+    <%@ include file="partials/navbar.jsp" %>
 </head>
 <body>
     <c:if test="true">
