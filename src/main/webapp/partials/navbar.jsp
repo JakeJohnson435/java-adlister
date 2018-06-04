@@ -7,5 +7,41 @@
     <div class="search">
         <input type="text" placeholder="Find what you want">
     </div>
-    <li class="login"><a href="/login.jsp">Login</a></li>
+    <%--<li class="login"><a href="/login">Login</a></li>--%>
+    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="login btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
+    <ul class="dropdown-menu dropdown-menu-right mt-2">
+        <li class="px-3 py-2">
+            <form action="login" method="POST" class="form" role="form">
+                <div class="form-group">
+                    <input id="username" name="username" placeholder="Email" class="form-control form-control-sm" type="text" required="">
+                </div>
+                <div class="form-group">
+                    <input id="password" name="password" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+                <div class="form-group text-center">
+                    <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
+                </div>
+            </form>
+        </li>
+    </ul>
 </nav>
+<div id="modalPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Forgot password</h3>
+                <button type="button" class="close font-weight-light" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Reset your password..</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

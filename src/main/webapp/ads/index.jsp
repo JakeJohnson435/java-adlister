@@ -19,6 +19,6 @@
         </div>
     </c:forEach>
 </div>
-
+<%@ include file="/partials/scripts.jsp"%>
 </body>
 </html>

@@ -17,11 +17,12 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
+                <p>${message}</p>
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
 </div>
-
+<%@ include file="partials/scripts.jsp"%>
 </body>
 </html>
