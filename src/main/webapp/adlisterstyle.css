@@ -1,0 +1,40 @@
+nav {
+    list-style-type: none;
+    padding: 1em;
+    background-color: #2D3E49;
+    margin-bottom: 1em;
+}
+
+li {
+    display:inline-block;
+    padding-right: 2em;
+}
+
+a, .login{
+    color: #FFF;
+}
+
+.search, .login{
+    float: right;
+    margin-left: 2em;
+    margin-top: -4px;
+}
+
+.ads {
+    float: left;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.navbar .dropdown-menu .form-control {
+    width: 300px;
+}
+
+.login {
+    padding: 2px 5px;
+    border: none;
+}
