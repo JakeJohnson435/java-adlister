@@ -1,0 +1,19 @@
+nav {
+    list-style-type: none;
+    padding: 1em;
+    background-color: #2D3E49;
+    margin-bottom: 1em;
+}
+
+li {
+    display:inline-block;
+    padding-right: 2em;
+}
+
+a {
+    color: #FFF;
+}
+
+.search, .login{
+    float: right;
+}

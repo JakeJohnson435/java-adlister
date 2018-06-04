@@ -1,23 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    if (request.getMethod().equalsIgnoreCase("post")) {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (username.equals("admin") && password.equals("password")) {
-            response.sendRedirect("/profile");
-        }
+<% if (request.getMethod().equalsIgnoreCase("post")) {
+    String username = request.getParameter("username");
+    String password = request.getParameter("password");
+    if (username.equals("admin") && password.equals("password")){
+        response.sendRedirect("/profile.jsp?username=admin");
     }
-%>
+} %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Please Log In" />
-    </jsp:include>
+    <title>Login</title>
+    <%@ include file="partials/stylelinks.jsp" %>
+    <%@ include file="partials/navbar.jsp" %>
 </head>
 <body>
-    <jsp:include page="partials/navbar.jsp" />
-    <div class="container">
-        <h1>Please Log In</h1>
+<div class="container" style="width:25%;">
+    <div class="row">
         <form action="/login.jsp" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -30,5 +27,7 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
+</div>
+
 </body>
 </html>
