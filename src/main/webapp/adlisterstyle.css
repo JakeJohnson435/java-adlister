@@ -17,3 +17,9 @@ a {
 .search, .login{
     float: right;
 }
+
+.ads {
+    float: left;
+    margin-right: 2em;
+    margin-bottom: 2em;
+}

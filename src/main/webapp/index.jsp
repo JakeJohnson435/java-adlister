@@ -2,13 +2,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title><%= "some title" %></title>
+    <title><%= "Adlister Home" %></title>
     <%@ include file="partials/stylelinks.jsp" %>
     <%@ include file="partials/navbar.jsp" %>
 </head>
 <body>
     <c:if test="true">
-        <h1>Dregslist</h1>
+        <h1>Adlister!</h1>
     </c:if>
     <c:if test="false">
         <h1>single letter variable names are good</h1>
