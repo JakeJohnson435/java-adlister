@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>Login</title>
-    <%@ include file="partials/stylelinks.jsp" %>
-    <%@ include file="partials/navbar.jsp" %>
+    <%@ include file="/WEB-INF/partials/stylelinks.jsp" %>
+    <%@ include file="/WEB-INF/partials/navbar.jsp" %>
 </head>
 <body>
 <div class="container" style="width:25%;">
@@ -22,6 +22,6 @@
         </form>
     </div>
 </div>
-<%@ include file="partials/scripts.jsp"%>
+<%@ include file="/WEB-INF/partials/scripts.jsp"%>
 </body>
 </html>

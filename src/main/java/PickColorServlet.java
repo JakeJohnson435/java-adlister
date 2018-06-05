@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 public class PickColorServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/color.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/color.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String color = request.getParameter("color");
         request.setAttribute("color", color);
-        request.getRequestDispatcher("/background.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/background.jsp").forward(request, response);
     }
 }

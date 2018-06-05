@@ -3,10 +3,10 @@
 <html>
 <head>
     <title>Gregslist</title>
-    <%@ include file="/partials/stylelinks.jsp" %>
+    <%@ include file="/WEB-INF/partials/stylelinks.jsp" %>
 </head>
 <body>
-<%@ include file="/partials/navbar.jsp" %>
+<%@ include file="/WEB-INF/partials/navbar.jsp" %>
 <h1>Viewing All Ads</h1>
 <div class="container">
     <c:forEach var="ad" items="${ads}">
@@ -18,6 +18,6 @@
         </div>
     </c:forEach>
 </div>
-<%@ include file="/partials/scripts.jsp"%>
+<%@ include file="/WEB-INF/partials/scripts.jsp"%>
 </body>
 </html>

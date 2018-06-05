@@ -3,8 +3,8 @@
 <html>
 <head>
     <title><%= "Adlister Home" %></title>
-    <%@ include file="partials/stylelinks.jsp" %>
-    <%@ include file="partials/navbar.jsp" %>
+    <%@ include file="/WEB-INF/partials/stylelinks.jsp" %>
+    <%@ include file="/WEB-INF/partials/navbar.jsp" %>
 </head>
 <body>
     <c:if test="true">
@@ -13,6 +13,6 @@
     <c:if test="false">
         <h1>single letter variable names are good</h1>
     </c:if>
-    <%@ include file="partials/scripts.jsp"%>
+    <%@ include file="/WEB-INF/partials/scripts.jsp"%>
 </body>
 </html>

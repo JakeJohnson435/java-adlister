@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CalculatorServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/math.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/math.jsp").forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
         String x = request.getParameter("x");
@@ -31,6 +31,6 @@ public class CalculatorServlet extends HttpServlet {
             answer = Integer.parseInt(x) * Integer.parseInt(y);
         }
         request.setAttribute("answer", answer);
-        request.getRequestDispatcher("/answer.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/answer.jsp").forward(request, response);
     }
 }
