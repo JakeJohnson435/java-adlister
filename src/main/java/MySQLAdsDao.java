@@ -45,6 +45,18 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> search(String searchTerm) {
+        Statement stmt = null;
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ads WHERE title LIKE '%" + searchTerm + "%' OR description LIKE '%" + searchTerm + "%'");
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving search results", e);
+        }
+    }
+
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
                 + "(" + ad.getUserId() + ", "

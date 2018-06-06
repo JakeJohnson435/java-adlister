@@ -6,7 +6,9 @@
     <li><a href="/profile">Profile</a></li>
     <li><a href="/ads">Ads</a></li>
     <div class="search">
-        <input type="text" placeholder="Find what you want">
+        <form action="search" method="post">
+        <input type="text" name="search" placeholder="Find what you want">
+        </form>
     </div>
 
     <% request.getSession();
