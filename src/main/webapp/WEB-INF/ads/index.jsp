@@ -19,6 +19,9 @@
             <div>
                 <h3>${ad.title}</h3>
                 <p>${ad.description}</p>
+                <form action="delete" method="post">
+                    <button name="deleteId" class="delete" value="${ad.id}">x</button>
+                </form>
             </div>
         </div>
     </c:forEach>

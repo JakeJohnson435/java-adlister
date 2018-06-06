@@ -42,7 +42,7 @@ button:focus {
     margin: 0 auto;
 }
 
-.create {
+.create, .delete{
     float: right;
     position: absolute;
     right: 1em;
