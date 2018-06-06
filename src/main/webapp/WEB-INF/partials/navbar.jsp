@@ -1,13 +1,23 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <nav>
     <li><a href="/">Home</a></li>
-    <li><a href="/count">View Counter</a></li>
-    <li><a href="/hello">Hello World Page</a></li>
+    <li><a href="/profile">Profile</a></li>
     <li><a href="/ads">Ads</a></li>
     <div class="search">
         <input type="text" placeholder="Find what you want">
     </div>
+
+    <% request.getSession();
+        if (session.getAttribute("user") != null){%>
+
     <li class="login"><a href="/logout">Logout</a></li>
+
+    <%
+        }
+        else { %>
+
     <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="login btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
     <ul class="dropdown-menu dropdown-menu-right mt-2">
         <li class="px-3 py-2">
@@ -21,12 +31,13 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </div>
-                <div class="form-group text-center">
-                    <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
-                </div>
             </form>
         </li>
     </ul>
+
+    <%
+        }%>
+
 </nav>
 <div id="modalPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

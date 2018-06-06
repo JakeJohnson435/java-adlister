@@ -8,7 +8,7 @@
 <body>
 <div class="container" style="width:25%;">
     <div class="row">
-        <form action="login" method="POST">
+        <form action="login" method="POST" class="loginform">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text">

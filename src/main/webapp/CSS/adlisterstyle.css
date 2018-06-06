@@ -14,10 +14,9 @@ a, .login{
     color: #FFF;
 }
 
-.search, .login{
+.search, .login {
     float: right;
     margin-left: 2em;
-    margin-top: -4px;
 }
 
 .ads {
@@ -37,4 +36,26 @@ button:focus {
 .login {
     padding: 2px 5px;
     border: none;
+}
+
+.loginform {
+    margin: 0 auto;
+}
+
+.create {
+    float: right;
+    position: absolute;
+    right: 1em;
+}
+
+h1 {
+    float: left;
+}
+
+.adContainer {
+    clear: both;
+}
+
+.hidden {
+    display: none;
 }
