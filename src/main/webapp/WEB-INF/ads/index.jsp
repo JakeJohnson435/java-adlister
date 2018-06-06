@@ -17,11 +17,12 @@
     <c:forEach var="ad" items="${ads}">
         <div class="ads col-md-5">
             <div>
-                <h3>${ad.title}</h3>
-                <p>${ad.description}</p>
+                <h3 style="float: left;">${ad.title}</h3>
                 <form action="delete" method="post">
-                    <button name="deleteId" class="delete" value="${ad.id}">x</button>
+                    <button name="deleteId" class="delete" value="${ad.id}" style="background-color: red; padding: 5px 5px; float: right;"></button>
                 </form>
+                <p style="clear: both">${ad.description}</p>
+
             </div>
         </div>
     </c:forEach>

@@ -48,7 +48,7 @@ button:focus {
     right: 1em;
 }
 
-h1 {
+h1, h3 {
     float: left;
 }
 
@@ -58,4 +58,8 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+div p {
+    clear: both;
 }
