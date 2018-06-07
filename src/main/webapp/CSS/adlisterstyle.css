@@ -21,8 +21,7 @@ a, .login{
 
 .ads {
     float: left;
-    margin-right: 2em;
-    margin-bottom: 2em;
+    margin: 1em;
 }
 
 button:focus {
@@ -54,6 +53,9 @@ h1, h3 {
 
 .adContainer {
     clear: both;
+    margin: auto;
+    width: 80%;
+    overflow: hidden;
 }
 
 .hidden {
@@ -62,4 +64,15 @@ h1, h3 {
 
 div p {
     clear: both;
+}
+
+body {
+    background-color: #BFC8CE;
+}
+
+
+.adDesc {
+    padding-left: 1em;
+    clear: both;
+    margin-bottom: 0;
 }

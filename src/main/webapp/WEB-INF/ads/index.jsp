@@ -12,17 +12,15 @@
     <button type="submit" class="create">Create a Listing</button>
 </form>
 <br>
-<div class="container adContainer">
-
+<div class="container adContainer col-md-12">
     <c:forEach var="ad" items="${ads}">
         <div class="ads col-md-5">
-            <div>
+            <div class="adCard">
                 <h3 style="float: left;">${ad.title}</h3>
                 <form action="delete" method="post">
                     <button name="deleteId" class="delete" value="${ad.id}" style="background-color: red; padding: 5px 5px; float: right;"></button>
                 </form>
-                <p style="clear: both">${ad.description}</p>
-
+                <p class="adDesc">${ad.description}</p>
             </div>
         </div>
     </c:forEach>
