@@ -1,28 +1,27 @@
 package com.codeup.adlister.dao;
+import com.codeup.adlister.Config;
 
-import com.codeup.adlister.models.Ad;
-import com.mysql.cj.jdbc.Driver;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.codeup.adlister.models.Ad;
+import com.mysql.cj.jdbc.Driver;
+
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
+    Config config = new Config();
 
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    this.config.getUrl(),
+                    this.config.getUser(),
+                    this.config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error connecting to the database", e);
         }
     }
 
@@ -51,19 +50,45 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> search(String searchTerm) {
+        Statement stmt = null;
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ads WHERE title LIKE '%" + searchTerm + "%' OR description LIKE '%" + searchTerm + "%'");
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving search results", e);
+        }
+    }
+
+    private String createDeleteQuery(String deleteId) {
+        return "DELETE FROM ads WHERE id = " + Integer.parseInt(deleteId) + ";";
+    }
+
+    @Override
+    public void delete(String deleteId) {
+        try {
+            connection.createStatement().executeUpdate(createDeleteQuery(deleteId));
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+    }
+
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
-            + "(" + ad.getUserId() + ", "
-            + "'" + ad.getTitle() +"', "
-            + "'" + ad.getDescription() + "')";
+                + "(" + ad.getUserId() + ", "
+                + "'" + ad.getTitle() +"', "
+                + "'" + ad.getDescription() + "')";
     }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
