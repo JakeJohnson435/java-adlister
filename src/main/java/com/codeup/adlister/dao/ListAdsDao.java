@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/main/java/com/codeup/adlister/dao/ListAdsDao.java
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;

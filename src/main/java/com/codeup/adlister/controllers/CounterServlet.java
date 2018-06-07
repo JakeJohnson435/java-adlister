@@ -9,9 +9,17 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CounterServlet", urlPatterns = "/count")
 public class CounterServlet extends HttpServlet {
     private int counter = 0;
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        String reset = req.getParameter("reset");
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        res.setContentType("text/html");
         counter += 1;
-        response.getWriter().println("<h1>The count is " + counter + ".</h1>");
+        res.getWriter().println("<h1>Welcome to the page! You are visitor number " + counter + "!</h1>");
+        res.getWriter().println("<p>Add ?reset=yes to the url to reset the counter</p>");
+
+        if (reset.equals("yes")){
+            counter =0;
+        }
     }
 }
+

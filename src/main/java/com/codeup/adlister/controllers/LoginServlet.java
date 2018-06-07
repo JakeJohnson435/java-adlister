@@ -1,11 +1,10 @@
 package com.codeup.adlister.controllers;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
@@ -33,5 +32,24 @@ public class LoginServlet extends HttpServlet {
         } else {
             response.sendRedirect("/login");
         }
+
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//            String username = request.getParameter("username");
+//            String password = request.getParameter("password");
+//            String message = "";
+//
+//            boolean success = username.equals("admin") && password.equals("password");
+//
+//            if (success){
+//                request.getSession().setAttribute("user", username);
+//                request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+//            } else {
+//                message ="Incorrect username or password. Please try again";
+//                request.setAttribute("message", message);
+//                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+//            }
+//
+//    }
     }
 }
+
