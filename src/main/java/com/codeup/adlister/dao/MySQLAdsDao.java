@@ -40,22 +40,30 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            String input = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            PreparedStatement stmt = connection.prepareStatement(input, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, ad.getUserId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setString(3, ad.getDescription());
+            stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
+
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
 
     @Override
-    public List<Ad> search(String searchTerm) {
-        Statement stmt = null;
+    public List<Ad> search(String searchTerm) throws SQLException {
+        String input = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
         try {
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ads WHERE title LIKE '%" + searchTerm + "%' OR description LIKE '%" + searchTerm + "%'");
+            PreparedStatement stmt = connection.prepareStatement(input);
+            stmt.setString(1, "%" + searchTerm + "%");
+            stmt.setString(2, "%" + searchTerm + "%");
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving search results", e);
@@ -73,13 +81,6 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting ad.", e);
         }
-    }
-
-    private String createInsertQuery(Ad ad) {
-        return "INSERT INTO ads(user_id, title, description) VALUES "
-                + "(" + ad.getUserId() + ", "
-                + "'" + ad.getTitle() +"', "
-                + "'" + ad.getDescription() + "')";
     }
 
 

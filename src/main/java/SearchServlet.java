@@ -1,6 +1,7 @@
 import com.codeup.adlister.dao.DaoFactory;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,12 +15,20 @@ public class SearchServlet extends HttpServlet {
         request.setAttribute("searchTerm", searchTerm);
         String message = "";
 
-        if (DaoFactory.getAdsDao().search(searchTerm).isEmpty()){
-            message = "No results found.";
-            request.setAttribute("message", message);
+        try {
+            if (DaoFactory.getAdsDao().search(searchTerm).isEmpty()){
+                message = "No results found.";
+                request.setAttribute("message", message);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        request.setAttribute("ads", DaoFactory.getAdsDao().search(searchTerm));
+        try {
+            request.setAttribute("ads", DaoFactory.getAdsDao().search(searchTerm));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         request.getRequestDispatcher("/WEB-INF/ads/searchresults.jsp").forward(request, response);
     }
 }
