@@ -23,7 +23,7 @@
     <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="login btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
     <ul class="dropdown-menu dropdown-menu-right mt-2">
         <li class="px-3 py-2">
-            <form action="login" method="POST" class="form" role="form">
+            <form action="./login" method="POST" class="form" role="form">
                 <div class="form-group">
                     <input id="username" name="username" placeholder="Email" class="form-control form-control-sm" type="text" required="">
                 </div>
@@ -34,6 +34,7 @@
                     <button type="submit" class="btn btn-primary btn-block">Login</button>
                 </div>
             </form>
+            <button class="btn btn-primary btn-block"><a href="/register">Register</a></button>
         </li>
     </ul>
 

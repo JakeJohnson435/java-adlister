@@ -13,5 +13,7 @@ public interface Ads {
 
     List<Ad> search(String searchTerm) throws SQLException;
 
+    List<Ad> searchById(long id) throws SQLException;
+
     void delete(String deleteId);
 }

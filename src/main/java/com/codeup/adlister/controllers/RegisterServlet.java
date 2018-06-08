@@ -22,9 +22,6 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
-        System.out.println(username);
-        System.out.println(email);
-        System.out.println(password);
 
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()

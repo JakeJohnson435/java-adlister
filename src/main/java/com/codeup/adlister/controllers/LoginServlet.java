@@ -44,21 +44,4 @@ public class LoginServlet extends HttpServlet {
     }
 }
 
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//            String username = request.getParameter("username");
-//            String password = request.getParameter("password");
-//            String message = "";
-//
-//            boolean success = username.equals("admin") && password.equals("password");
-//
-//            if (success){
-//                request.getSession().setAttribute("user", username);
-//                request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
-//            } else {
-//                message ="Incorrect username or password. Please try again";
-//                request.setAttribute("message", message);
-//                request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-//            }
-//
-//    }
 

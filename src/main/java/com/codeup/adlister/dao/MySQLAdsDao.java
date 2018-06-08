@@ -70,6 +70,20 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public List<Ad> searchById(long id) throws SQLException {
+        String input = "SELECT * FROM ads WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(input);
+            stmt.setLong(1, id);
+            stmt.executeQuery();
+            ResultSet rs = stmt.getResultSet();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving your posts", e);
+        }
+    }
+
     private String createDeleteQuery(String deleteId) {
         return "DELETE FROM ads WHERE id = " + Integer.parseInt(deleteId) + ";";
     }
