@@ -7,7 +7,7 @@
 <%@ include file="/WEB-INF/partials/navbar.jsp" %>
 
     <div class="container">
-        <h1>Welcome back, ${sessionScope.user}!</h1>
+        <h1>Welcome back, ${sessionScope.username}!</h1>
     </div>
 
 </body>

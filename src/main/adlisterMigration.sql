@@ -1,5 +1,9 @@
 USE adlister_db;
 
-INSERT INTO users(
-  username, email, password
-) VALUES ('firstuser', 'firstuser@gmail.com', 'password321')
+CREATE TABLE users (
+  id INT unsigned NOT NULL AUTO_INCREMENT,
+  username VARCHAR (50),
+  email VARCHAR(50),
+  password VARCHAR (100),
+  PRIMARY KEY (id)
+)
